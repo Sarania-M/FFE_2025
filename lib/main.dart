@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test1/pages/splash/splash_screen.dart';
-// import 'package:provider/provider.dart';
-// // import 'counter.dart';
-// import 'prov_counter.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -13,6 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: SplashScreen(), debugShowCheckedModeBanner: false,);
+    return MaterialApp(home: SplashScreen());
   }
 }

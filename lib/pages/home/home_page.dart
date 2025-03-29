@@ -35,70 +35,90 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
-        title: Text("Todo Apploication"), 
-        centerTitle: true, 
-        backgroundColor: Colors.white, 
+        title: Text("Todo Apploication"),
+        centerTitle: true,
+        backgroundColor: Colors.black,
         titleTextStyle: TextStyle(color: Colors.white),
       ),
-      
-      backgroundColor: Colors.black,
+
+      backgroundColor: const Color.fromARGB(255, 114, 22, 22),
 
       body: Column(
         children: [
+
+
+
+
+
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(left: 50.0),
             child: Row(
+
+
               children: [
+
+
                 Expanded(
                   child: TextField(
                     controller: _taskController,
-                    style: TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      hintText: 'Enter Task',
-                      hintStyle: TextStyle(
-                        color: Colors.white,
-                      ),
-    
-                    ),
+                    
                   ),
                 ),
+                
+                
                 IconButton(
-                  icon: Icon(Icons.add, color: Colors.white,),
+                  icon: Icon(Icons.add, color: Colors.white),
                   onPressed: _addTask,
                 ),
+              
+              
               ],
             ),
           ),
+
+
+
+
           Expanded(
             child: ListView.builder(
               itemCount: _task.length,
               itemBuilder: (context, index) {
                 return Card(
-                  color: Colors.grey[500],
+                  color: const Color.fromARGB(255, 71, 206, 37),
                   child: ListTile(
-                    
+
+
+
                     leading: Checkbox(
                       value: _task[index]['completed'],
                       onChanged: (value) => _toggleTask(index),
                     ),
+
                     
-                    title: Text(
-                      _task[index]['task'],
-                      style: TextStyle(
-                        color: Colors.white,
-                        decoration: _task[index]['completed']
-                                ? TextDecoration.lineThrough
-                                : null,
+                    
+                    title: Center(
+                      child: Text(
+                        _task[index]['task'],
+                        style: TextStyle(
+                          color: Colors.white,
+                          decoration:
+                              _task[index]['completed']
+                                  ? TextDecoration.lineThrough
+                                  : null,
+                        ),
                       ),
                     ),
 
+                    
+                    
+                    
                     trailing: IconButton(
-                      icon: Icon(Icons.delete, color: Colors.red,),
+                      icon: Icon(Icons.delete, color: Colors.red),
                       onPressed: () => _deleteTask(index),
                     ),
 
+                    
                   ),
                 );
               },
@@ -106,7 +126,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-
     );
   }
 }

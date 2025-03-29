@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:test1/pages/home/home_page.dart';
 
@@ -10,20 +12,34 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   Future<void> init() async {
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const HomePage(),
-        ),
-      );
+    Future.delayed(Duration(seconds: 10), () {
+      if (context.mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const HomePage(),
+          ),
+        );
+      }
     });
   }
 
   @override
   void initState() {
     super.initState();
-    init();
+    // init();
+    print("check");
+    Future.delayed(Duration(seconds: 1), () {
+      print("checking");
+      if (context.mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute<void>(
+            builder: (BuildContext context) => const HomePage(),
+          ),
+        );
+      }
+    });
   }
 
   var logo = 'assets/images/nit_logo.png';
@@ -33,19 +49,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 100),
-              child: Image.asset(logo),
-            ),
-            Text(Title, style: TextStyle(fontSize: 24)),
-          ],
-        ),
-      ),
-    );
+    // Timer(Duration(seconds: 5), ()=>Navigator.pushReplacement(
+    //       context,
+    //       MaterialPageRoute<void>(
+    //         builder: (BuildContext context) => const HomePage(),
+    //       ),
+    //     ));
+    print("buil");
+    return Scaffold(body: Center(child: Text("chjchbk")));
   }
 }
