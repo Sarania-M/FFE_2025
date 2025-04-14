@@ -8,8 +8,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Map<String, dynamic>> _task = [];
-  TextEditingController _taskController = TextEditingController();
+  final List<Map<String, dynamic>> _task = [];
+  final TextEditingController _taskController = TextEditingController();
 
   void _addTask() {
     if (_taskController.text.isNotEmpty) {
@@ -36,13 +36,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Todo Apploication"),
+        title: Text("To-Do Application",style: TextStyle(fontSize: 38,fontFamily: 'rushfordclean')),
         centerTitle: true,
-        backgroundColor: Colors.black,
-        titleTextStyle: TextStyle(color: Colors.white),
+        backgroundColor: const Color.fromARGB(255, 255, 183, 183),
+        titleTextStyle: TextStyle(color: const Color.fromARGB(149, 0, 0, 0)),
       ),
 
-      backgroundColor: const Color.fromARGB(255, 114, 22, 22),
+      backgroundColor: const Color.fromARGB(255, 248, 248, 248),
 
       body: Column(
         children: [
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                 
                 
                 IconButton(
-                  icon: Icon(Icons.add, color: Colors.white),
+                  icon: Icon(Icons.add, color: const Color.fromARGB(255, 8, 1, 1)),
                   onPressed: _addTask,
                 ),
               
@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
               itemCount: _task.length,
               itemBuilder: (context, index) {
                 return Card(
-                  color: const Color.fromARGB(255, 71, 206, 37),
+                  color: const Color.fromARGB(255, 254, 184, 221),
                   child: ListTile(
 
 
@@ -100,8 +100,8 @@ class _HomePageState extends State<HomePage> {
                     title: Center(
                       child: Text(
                         _task[index]['task'],
-                        style: TextStyle(
-                          color: Colors.white,
+                        style: TextStyle(fontSize: 24,
+                          color: const Color.fromARGB(255, 65, 0, 49),
                           decoration:
                               _task[index]['completed']
                                   ? TextDecoration.lineThrough
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                     
                     
                     trailing: IconButton(
-                      icon: Icon(Icons.delete, color: Colors.red),
+                      icon: Icon(Icons.delete, color: const Color.fromARGB(154, 0, 0, 0)),
                       onPressed: () => _deleteTask(index),
                     ),
 
