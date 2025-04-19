@@ -24,13 +24,16 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
-      appBar: AppBar(backgroundColor: Color.fromARGB(255, 255, 183, 183), title: Center(child: const Text("Sign Up",style: TextStyle(color: Color.fromARGB(172, 0, 0, 0), fontSize: 38,fontFamily: 'rushfordclean')))),
+      appBar: AppBar( backgroundColor: Color.fromARGB(255, 255, 183, 183), 
+      title: Center(child: const Text("To-Do Application",style: TextStyle(color: Color.fromARGB(172, 0, 0, 0), fontSize: 38,fontFamily: 'rushfordclean')))),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center, 
+            
             children: [
+              Center(child: Text("Welcome new user",style: TextStyle(fontSize: 28))),
               TextField(
                 controller: _emailController,
                 decoration: const InputDecoration(labelText: "Email"),
